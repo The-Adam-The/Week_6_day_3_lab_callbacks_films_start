@@ -10,4 +10,9 @@ Cinema.prototype.filmNames = function() {
     return output
 }
 
+Cinema.prototype.findByTitle = function(filmName) {
+  const output = this.films.filter(film => film.title === filmName)
+  return output
+}
+
 module.exports = Cinema;
