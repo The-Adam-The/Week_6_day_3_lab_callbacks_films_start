@@ -3,16 +3,22 @@ const Cinema = function (films) {
 };
 
 Cinema.prototype.filmNames = function() {
-    output = [];
+    const output = [];
     this.films.forEach((film) => {
       output.push(film.title);
     }) 
-    return output
+    return output;
 }
 
 Cinema.prototype.findByTitle = function(filmName) {
-  const output = this.films.filter(film => film.title === filmName)
-  return output
+  const output = this.films.filter(film => film.title === filmName);
+  return output;
 }
+
+Cinema.prototype.findByGenre = function(genre) {
+  const output = this.films.filter(film => film.genre === genre);
+  return output;
+}
+
 
 module.exports = Cinema;

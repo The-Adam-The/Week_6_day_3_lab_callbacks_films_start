@@ -1,3 +1,4 @@
+const { AssertionError } = require('assert');
 const assert = require('assert');
 const Cinema = require('../models/cinema.js');
 const Film = require('../models/film.js');
@@ -29,7 +30,7 @@ describe('Cinema', function () {
   });
 
   it('should be able to get a list of film titles', function () {
-    output = cinema.filmNames()
+    const output = cinema.filmNames();
     assert.deepStrictEqual(output, ['Moonlight', 'Blade Runner 2049', 'Dunkirk', 'Black Panther', 'T2 Trainspotting'])
   });
 
@@ -38,7 +39,11 @@ describe('Cinema', function () {
     assert.deepStrictEqual(output, [moonlight])
   });
 
-  it('should be able to filter films by genre');
+  it('should be able to filter films by genre', function () {
+    const output = cinema.findByGenre('drama');
+    assert.deepStrictEqual(output, [moonlight, trainspotting]);
+  });
+
   it('should be able to check whether there are some films from a particular year');
   it('should be able to check whether there are no films from a particular year');
   it('should be able to check whether all films are over a particular length');
